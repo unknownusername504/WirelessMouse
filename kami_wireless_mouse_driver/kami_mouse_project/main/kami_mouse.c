@@ -1361,7 +1361,7 @@ static void sensor_task(void *arg)
         vTaskDelay(pdNS_TO_TICKS(SENSOR_BURST_EXIT_DELAY_NS));
         // Time stamp to ensure we do not exceed REPORT_RATE_MS
         // Wait until REPORT_RATE_MS has elapsed
-        uint32_t diff_us = (esp_timer_get_time() - start_us) / 1000;
+        uint32_t diff_us = (esp_timer_get_time() - start_us);
         if (diff_us < REPORT_RATE_US)
         {
             vTaskDelay(pdUS_TO_TICKS(REPORT_RATE_US - diff_us));
